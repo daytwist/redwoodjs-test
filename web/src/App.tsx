@@ -3,10 +3,15 @@ import type { ReactNode } from 'react'
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
+import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react'
+import * as theme from 'config/chakra.config'
+
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 
 import './index.css'
 import './scaffold.css'
+
+const extendedTheme = extendTheme(theme)
 
 
 interface AppProps {
@@ -16,7 +21,10 @@ interface AppProps {
 const App = ({ children }: AppProps) => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <RedwoodApolloProvider>{children}</RedwoodApolloProvider>
+      <ColorModeScript />
+      <ChakraProvider theme={extendedTheme}>
+        <RedwoodApolloProvider>{children}</RedwoodApolloProvider>
+      </ChakraProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )
