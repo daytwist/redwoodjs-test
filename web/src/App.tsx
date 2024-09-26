@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 
-import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
-import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
-
 import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react'
 import * as theme from 'config/chakra.config'
+
+import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
+import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 
@@ -12,7 +12,6 @@ import './index.css'
 import './scaffold.css'
 
 const extendedTheme = extendTheme(theme)
-
 
 interface AppProps {
   children?: ReactNode
