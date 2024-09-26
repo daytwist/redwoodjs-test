@@ -1,7 +1,8 @@
 import * as React from 'react'
+
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import type { GlobalTypes } from '@storybook/csf'
 import type { StoryFn, StoryContext } from '@storybook/react'
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import theme from 'config/chakra.config'
 /** @type { import("@storybook/csf").GlobalTypes } */
 export const globalTypes: GlobalTypes = {}
